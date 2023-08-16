@@ -1,0 +1,24 @@
+A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits,
+each raised to the power of the number of digits in a given base. 
+In this Kata, we will restrict ourselves to decimal (base 10).
+
+def narcissistic( value ):
+    p = len(str(value))
+    sum = 0
+    for x in str(value):
+        sum += pow(int(x) , p)
+    return ( sum == value )
+
+
+
+
+BETTER
+
+def narcissistic(value):
+    return value == sum(int(x) ** len(str(value)) for x in str(value))
+
+
+
+
+
+
