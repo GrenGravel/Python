@@ -1,0 +1,36 @@
+RGB To Hex Conversion
+
+The rgb function is incomplete. 
+Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned. 
+Valid decimal values for RGB are 0 - 255. 
+Any values that fall out of that range must be rounded to the closest valid value.
+
+def rgb(r, g, b):
+    sixteen = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"]
+    if r < 0:
+        r = 0
+    if g < 0: 
+        g = 0
+    if b < 0: 
+        b = 0
+    if r > 255:
+        r = 255
+    if g > 255:
+        g = 255
+    if b > 255:
+        b = 255
+    a1 = sixteen[(r // 16)]
+    a2 = sixteen[r % 16]
+    b1 = sixteen[g // 16]
+    b2 = sixteen[g % 16]
+    c1 = sixteen[b // 16]
+    c2 = sixteen[b % 16]
+    
+    return (str(a1) + str(a2) + str(b1) + str(b2) + str(c1) + str(c2))
+
+
+better 
+
+def rgb(r, g, b):
+    round = lambda x: min(255, max(x, 0))
+    return ("{:02X}" * 3).format(round(r), round(g), round(b))
