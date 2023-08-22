@@ -1,0 +1,16 @@
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+def solution(s):
+    new_string=""
+    for i in s:
+        if(i.isupper()):
+            new_string+="*"+i
+        else:
+            new_string+=i
+    x = new_string.split("*")
+    return (' '.join(x))
+
+BETTER
+
+def solution(s):
+    return ''.join(' ' + c if c.isupper() else c for c in s)
